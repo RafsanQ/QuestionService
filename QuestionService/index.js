@@ -44,7 +44,7 @@ const QuestionModel = mongoose.model('Questions', new mongoose.Schema({
 app.get("/", (req, res)=>{
     QuestionModel.find()
         .then((data)=>{
-            res.send(data);
+            res.json(data);
         })
         .catch((error)=>{
             console.log(error);
@@ -55,7 +55,7 @@ app.get("/", (req, res)=>{
 app.post("/", body_parser.json(), (req, res)=>{
     const JSONObject = req.body;
     console.log(JSONObject);
-    res.send(JSONObject);
+    res.json(JSONObject);
 })
 
 app.listen(port, ()=>{

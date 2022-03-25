@@ -49,9 +49,13 @@ app.get("/", (req, res)=>{
             console.log(error);
             res.send(error);
         })
-
-    
 });
+
+app.post("/", (req, res)=>{
+    const JSONObject = req.body;
+    console.log(JSONObject);
+    res.send(JSONObject);
+})
 
 app.listen(port, ()=>{
     console.log(`Server Running at port ${port}`);

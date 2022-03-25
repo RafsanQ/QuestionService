@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const body_parser = require('body-parser');
 const port = 7777;
 
 const mongoose = require('mongoose');
@@ -51,7 +52,7 @@ app.get("/", (req, res)=>{
         })
 });
 
-app.post("/", (req, res)=>{
+app.post("/", body_parser.json(), (req, res)=>{
     const JSONObject = req.body;
     console.log(JSONObject);
     res.send(JSONObject);
